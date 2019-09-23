@@ -1,0 +1,27 @@
+.nav {
+    grid-area: n;
+    background-color:mediumseagreen;
+}
+
+.item{
+    margin: 10px 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.item:hover{
+    background-color: #3ca371;
+    box-shadow: 0 2px 2px aquamarine;
+}
+
+
+.item a {
+    font-size: 1.3em;
+    color: #fff;
+}
+
+.item a.active{
+    color: darkslategray;
+}
+

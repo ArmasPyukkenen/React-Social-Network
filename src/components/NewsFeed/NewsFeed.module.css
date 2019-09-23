@@ -1,0 +1,4 @@
+.news_feed{
+    display: flex;
+    flex-direction: column;
+}
