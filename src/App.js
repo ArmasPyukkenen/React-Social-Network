@@ -10,6 +10,7 @@ import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import NewsFeed from './components/NewsFeed/NewsFeed';
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
     return ( 
@@ -22,11 +23,7 @@ const App = (props) => {
                            render={ () => <Profile profileState={props.state.profilePage} dispatch={props.dispatch}/>}
                     />
                     <Route path="/dialogs"
-                           render={ () => <Dialogs
-                               dialogsState={props.state.dialogsPage}
-                               dispatch={props.dispatch}
-                           />
-                           }
+                           render={ () => <DialogsContainer/>}
                     />
                     <Route path="/news" component={NewsFeed}/>
 
