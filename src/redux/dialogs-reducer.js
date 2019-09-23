@@ -18,16 +18,16 @@ const initialState = {
 const reduceDialogs = (state = initialState, action) => {
     switch (action.type){
         case CHANGE_NEW_MESSAGE:
-            state.newMessageText = action.currentNewMessage;
-            return state;
-        case SEND_MESSAGE:
-            let newMessage = {
-                message : state.newMessageText,
-                id : state.messages.length + 1
+            return {
+                ...state,
+                newMessageText: action.currentNewMessage
             };
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
+        case SEND_MESSAGE:
+            return {
+                ...state,
+                messages: [...state.messages, {message : state.newMessageText, id: state.messages.length + 1}],
+                newMessageText: ''
+            };
         default:
             return state;
     }
