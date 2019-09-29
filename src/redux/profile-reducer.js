@@ -5,7 +5,7 @@ const initialState = {
     postsData : [{message:"Hi, how are you?", likes:5},
         {message: "Hey, it's a beautiful day!", likes:10}],
     newPostText : ''
-}
+};
 
 const reduceProfile = (state = initialState, action) => {
     switch (action.type){

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './normalize.css';
 import './App.css';
 
@@ -8,11 +7,11 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
 import NewsFeed from './components/NewsFeed/NewsFeed';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
-const App = (props) => {
+const App = () => {
     return ( 
         <BrowserRouter>
             <div className="app-wrapper">
@@ -26,6 +25,9 @@ const App = (props) => {
                            render={ () => <DialogsContainer/>}
                     />
                     <Route path="/news" component={NewsFeed}/>
+                    <Route path="/users"
+                           render={ () => <UsersContainer/>}
+                    />
 
                 </main>
             </div>
