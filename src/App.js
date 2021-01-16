@@ -19,14 +19,14 @@ const App = () => {
                 <Nav />
                 <main className="app-wrapper-content">
                     <Route path="/profile"
-                           render={ () => <Profile/>}
+                            render={ () => <Profile/>}
                     />
                     <Route path="/dialogs"
-                           render={ () => <DialogsContainer/>}
+                            render={ () => <DialogsContainer/>}
                     />
                     <Route path="/news" component={NewsFeed}/>
                     <Route path="/users"
-                           render={ () => <UsersContainer/>}
+                            render={ () => <UsersContainer/>}
                     />
 
                 </main>

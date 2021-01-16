@@ -2,8 +2,8 @@ const CHANGE_NEW_POST = "CHANGE-NEW-POST";
 const ADD_POST = "ADD-POST";
 
 const initialState = {
-    postsData : [{message:"Hi, how are you?", likes:5},
-        {message: "Hey, it's a beautiful day!", likes:10}],
+    postsData : [{id:1, message:"Hi, how are you?", likes:5},
+        {id: 2, message: "Hey, it's a beautiful day!", likes:10}],
     newPostText : ''
 };
 
@@ -17,7 +17,7 @@ const reduceProfile = (state = initialState, action) => {
         case ADD_POST:
             return {
                 ...state,
-                postsData: [...state.postsData, {message: state.newPostText, likes: 0}],
+                postsData: [...state.postsData, {id: new Date().getTime(), message: state.newPostText, likes: 0}],
                 newPostText: ''
             };
         default:

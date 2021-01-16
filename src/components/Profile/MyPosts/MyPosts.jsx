@@ -4,7 +4,7 @@ import s from './MyPosts.module.css';
 
 
 const MyPosts = (props) => {
-    const postsArea = props.profilePage.postsData.map( p => <Post message={p.message} likes={p.likes}/>);
+    const postsArea = props.profilePage.postsData.map( p => <Post key={p.id} message={p.message} likes={p.likes}/>);
 
     const addPost = () => {
         props.addPost();

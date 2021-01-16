@@ -1,3 +1,4 @@
+//This file is not used in the projects it's just a mock of the redux store
 import reduceProfile from "./profile-reducer";
 import reduceDialogs from "./dialogs-reducer";
 import reduceUsers from "./users-reducer";
@@ -27,7 +28,7 @@ export let store = {
 
     },
     getState(){
-      return this._state;
+        return this._state;
     },
     dispatch(action){
         this._state.profile = reduceProfile(this._state.profile, action);
