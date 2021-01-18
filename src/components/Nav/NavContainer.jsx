@@ -6,15 +6,13 @@ class NavContainer extends React.Component {
 
   render() {
     return <Nav 
-      isAuth={this.props.isAuth}
       userId={this.props.userId}
     />
   }
 }
 
 const mapStateToProps = (state) => {
-  const {isAuth, userId} = state.auth;
-  return {isAuth, userId}
+  return {userId : state.auth.userId}
 }
 
 export default connect(mapStateToProps, null)(NavContainer);

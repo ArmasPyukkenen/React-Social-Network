@@ -39,5 +39,13 @@ export default {
   
   getProfile(userId) {
     return anonymousInstance.get('profile/' + userId).then(res => res.data);
+  },
+
+  getStatus(userId) {
+    return anonymousInstance.get('profile/status/' + userId).then(res => res.data)
+  },
+
+  putStatus(status) {
+    return authorizedInstance.put('profile/status', {status}).then(res => res.data.resultCode)
   }
 }
