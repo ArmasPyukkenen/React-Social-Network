@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Nav.module.css';
 import {NavLink} from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <nav className={s.nav}>
-            <div className={s.item}><NavLink to="/profile" activeClassName={s.active}>My page</NavLink></div>
+            <div className={s.item}><NavLink to={props.isAuth ? `/profile/${props.userId}` : "/login"} activeClassName={s.active}>My page</NavLink></div>
             <div className={s.item}><NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink></div>
             <div className={s.item}><NavLink to="/news" activeClassName={s.active}>News</NavLink></div>
             <div className={s.item}><NavLink to="/users" activeClassName={s.active}>Users</NavLink></div>

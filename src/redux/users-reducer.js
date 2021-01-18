@@ -1,36 +1,60 @@
 const UNFOLLOW = "UNFOLLOW";
 const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_PAGE_COUNT = "SET_TOTAL_PAGE_COUNT";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
 
 const initialState = {
-    users: [
-        {id: 0, name: "Sanya", location: {cityName: "Piter", countryName: "Russia"}, photos:{small:null}, followed: true, status: "strauss yee-huw"},
-        {id: 1, name: "Leha", location: {cityName: "Moscow", countryName: "Russia"}, photos:{small:null}, followed: false, status: "obnoxious"},
-        {id: 2, name: "Danya", location: {cityName: "Miami", countryName: "USA"}, photos:{small:null}, followed: true, status: "many moneys"},
-    ]
+    users: [],
+    resultsOnPage: 10,
+    pageCount: 0,
+    currentPage: 1,
+    isFetching: false
 };
 
 const reduceUsers = (state = initialState, action) => {
     switch (action.type){
         case UNFOLLOW:
             return ({
+                ...state,
                 users: state.users.map( u => u.id === action.userId ? {...u, followed: false} : u),
             });
         case FOLLOW:
             return ({
+                ...state,
                 users: state.users.map( u => u.id === action.userId ? {...u, followed: true} : u),
             });
         case SET_USERS:
             return ( {
+                ...state,
                 users: action.users
-            })
+            });
+        case SET_CURRENT_PAGE:
+            return({
+                ...state,
+                currentPage: action.pageNumber
+            });
+        case SET_TOTAL_PAGE_COUNT:
+            return( {
+                ...state,
+                pageCount: action.totalPageCount
+            });
+        case SET_IS_FETCHING:
+            return( {
+                ...state,
+                isFetching: action.isFetching
+            });
         default:
             return state;
     }
 };
 
-export const followUserAC = (userId) => ({ type: FOLLOW, userId: userId });
-export const unfollowUserAC = (userId) => ({ type: UNFOLLOW, userId: userId });
-export const setUsersAC = (users) => ({ type: SET_USERS, users: users })
+export const followUser = (userId) => ({ type: FOLLOW, userId });
+export const unfollowUser = (userId) => ({ type: UNFOLLOW, userId });
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber});
+export const setTotalPageCount = (totalPageCount) => ({type: SET_TOTAL_PAGE_COUNT, totalPageCount});
+export const setIsFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching});
 
 export default reduceUsers;

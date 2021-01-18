@@ -4,3 +4,16 @@
   margin-bottom: 1rem;
   padding: 0.5rem;
 }
+
+.setPageBtn {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+  transform: scale(1.1);
+}

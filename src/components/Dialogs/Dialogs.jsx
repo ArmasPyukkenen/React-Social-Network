@@ -21,9 +21,9 @@ const Message = (props) => {
 const Dialogs = (props) => {
     const state = props.dialogsPage;
 
-    const renderDialogNames = () => state.dialogNames.map( d => <DialogItem name={d.name} id={d.id}/>);
+    const renderDialogNames = () => state.dialogNames.map( d => <DialogItem key={d.id} name={d.name} id={d.id}/>);
 
-    const renderMessages = () => state.messages.map( m => <Message message={m.message} id={m.id}/>);
+    const renderMessages = () => state.messages.map( m => <Message key={m.id} message={m.message} id={m.id}/>);
 
     const changeNewMessage = (e) => {
         const text = e.target.value;

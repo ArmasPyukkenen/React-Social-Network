@@ -33,7 +33,7 @@ const reduceDialogs = (state = initialState, action) => {
     }
 };
 
-export const changeNewMessageActionCreator = (text) => ({type: CHANGE_NEW_MESSAGE, currentNewMessage: text});
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
+export const changeNewMessage = (text) => ({type: CHANGE_NEW_MESSAGE, currentNewMessage: text});
+export const sendMessage = () => ({type: SEND_MESSAGE});
 
 export default reduceDialogs;
