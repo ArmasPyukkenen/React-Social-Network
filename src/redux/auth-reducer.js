@@ -1,5 +1,6 @@
-const AUTHORIZE_USER = "AUTHORIZE_USER";
+import samuraiAPI from '../DAL/api';
 
+const AUTHORIZE_USER = "AUTHORIZE_USER";
 
 const initialState = {
   login: null,
@@ -21,6 +22,15 @@ const reduceAuthorization = (state = initialState, action) => {
   }
 }
 
-export const authorizeUser = ({login, id: userId, email}) => ({ type: AUTHORIZE_USER, data : {login, userId, email}});
+export const setUserAuthorizationAC = ({login, id: userId, email}) => ({ type: AUTHORIZE_USER, data : {login, userId, email}});
+
+export const authorizeUser = () => dispatch => {
+  samuraiAPI.getLoggedUserInfo()
+    .then( data => {
+      if(data.resultCode === 0) {
+        dispatch(setUserAuthorizationAC(data.data));
+      }
+    })
+}
 
 export default reduceAuthorization;

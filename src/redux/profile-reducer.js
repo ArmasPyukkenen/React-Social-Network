@@ -1,3 +1,5 @@
+import samuraiAPI from '../DAL/api';
+
 const CHANGE_NEW_POST = "CHANGE-NEW-POST";
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -26,7 +28,7 @@ const reduceProfile = (state = initialState, action) => {
         case SET_USER_PROFILE:
             return {
                 ...state,
-                avatar: action.ava,
+                avatar: action.avatar,
                 fullName: action.fullName
             }
         default:
@@ -36,6 +38,13 @@ const reduceProfile = (state = initialState, action) => {
 
 export const changeNewPost = (text) => ({type: CHANGE_NEW_POST, currentPostMessage: text});
 export const addPost = () => ({type: ADD_POST});
-export const setUserProfile = ({ava, fullName}) => ({ type: SET_USER_PROFILE, ava, fullName});
+export const setUserProfile = ({avatar, fullName}) => ({ type: SET_USER_PROFILE, avatar, fullName});
+
+export const getUserProfile = userId => dispatch => {
+    samuraiAPI.getProfile(userId)
+    .then(data => {
+        dispatch(setUserProfile({avatar: data.photos.large, fullName: data.fullName}))
+    })
+}
 
 export default reduceProfile;

@@ -47,7 +47,12 @@ const Users = (props) => {
                         <h3 style={{color: 'black'}}>{u.name}</h3>
                     </NavLink>
                     {u.status !== null ? <div> {u.status}</div> : ''}
-                    <button onClick={() => props.handleFollowing(u.id, u.followed)}>{u.followed === true ? 'unfollow' : 'follow'}</button>
+                    <button 
+                        onClick={() => props.handleFollowing(u.id, u.followed)}
+                        disabled = {props.blockedButtons.some( disabledId => disabledId === u.id)}
+                    >
+                        {u.followed === true ? 'unfollow' : 'follow'}
+                    </button>
                 </div>
             )
         }
