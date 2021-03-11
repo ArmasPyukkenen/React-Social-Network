@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color:mediumseagreen;
+    background-color:hsl(120, 31%, 60%);;
 }
 
 .item{

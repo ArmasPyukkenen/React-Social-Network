@@ -15,7 +15,7 @@ const authorizedInstance = axios.create({
   baseURL,
   withCredentials: true,
   headers: {
-    "API-KEY" : ""
+    "API-KEY" : "252b8934-3d14-468f-b9bb-c9033cf8633e"
   }
 })
 
@@ -47,5 +47,24 @@ export default {
 
   putStatus(status) {
     return authorizedInstance.put('profile/status', {status}).then(res => res.data.resultCode)
+  },
+
+  login(email, password, rememberMe, captcha) {
+    return credentialsInstance.post('/auth/login', {email, password, rememberMe, captcha}).then(res => {
+      return new Promise((resolve, reject) => {
+        if(res.data.resultCode === 0) {
+          resolve(res.data.data.userId)
+        } else if (res.data.resultCode === 10) {
+          reject('captcha')
+        } else{
+          reject('invalid')
+        }
+      })
+    })
+  },
+
+  logout() {
+    return credentialsInstance.post('/auth/logout').then(res => res.data.resultCode)
   }
+
 }

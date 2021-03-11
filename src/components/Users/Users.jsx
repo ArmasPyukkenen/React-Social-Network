@@ -3,6 +3,7 @@ import defaultAvatar from '../../resources/images/defaultavatar.png';
 import classes from './Users.module.css';
 import Loader from '../common/Loader/Loader';
 import {NavLink} from "react-router-dom";
+import Frame from '../Frame/Frame';
 
 const Users = (props) => {
     const {pageCount, currentPage} = props;
@@ -40,20 +41,22 @@ const Users = (props) => {
         props.isFetching ? 
             <Loader /> :
             props.users.map( u =>
-                <div className={classes.user} key={u.id}>
-                    
-                    <NavLink to={"/profile/" + u.id}>
-                        <img height="90px" src={u.photos.small || defaultAvatar} alt="user avatar"></img>
-                        <h3 style={{color: 'black'}}>{u.name}</h3>
-                    </NavLink>
-                    {u.status !== null ? <div> {u.status}</div> : ''}
-                    <button 
-                        onClick={() => props.handleFollowing(u.id, u.followed)}
-                        disabled = {props.blockedButtons.some( disabledId => disabledId === u.id)}
-                    >
-                        {u.followed === true ? 'unfollow' : 'follow'}
-                    </button>
-                </div>
+                <Frame>
+                    <div className={classes.user} key={u.id}>
+                        
+                        <NavLink to={"/profile/" + u.id}>
+                            <img height="90px" src={u.photos.small || defaultAvatar} alt="user avatar"></img>
+                            <h3 style={{color: 'black'}}>{u.name}</h3>
+                        </NavLink>
+                        {u.status !== null ? <div> {u.status}</div> : ''}
+                        <button 
+                            onClick={() => props.handleFollowing(u.id, u.followed)}
+                            disabled = {props.blockedButtons.some( disabledId => disabledId === u.id)}
+                        >
+                            {u.followed === true ? 'unfollow' : 'follow'}
+                        </button>
+                    </div>
+                </Frame>
             )
         }
     </div>

@@ -5,14 +5,15 @@
         "h h"
         "n c";
     
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 2fr 10fr;
+    min-height: 100vh;
 /*    grid-gap: 10px;*/
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color:crimson;
+    background-color: #efe;
 }
 
 a{

@@ -1,11 +1,9 @@
 .news_wrapper{
     box-sizing: border-box;
     display: flex;
-    background-color: #ec244c;
     margin: 10px 15px;
     /*border: solid gray 1px;*/
     padding: 5px;
-    box-shadow: 0 2px 2px #aa2222;
 }
 
 .source_info{

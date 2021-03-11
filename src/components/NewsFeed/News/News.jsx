@@ -1,18 +1,22 @@
 import React from 'react';
+import Frame from '../../Frame/Frame';
 import s from './News.module.css';
+import spidermanAvatar from '../../../resources/images/spiderman.jpg';
 
 const News = () => {
     return (
-        <div className={s.news_wrapper}>
-            <div className={s.source_info}>
-                <img className={s.avatar} src="https://res.cloudinary.com/teepublic/image/private/s--AEso_4pt--/t_Preview/b_rgb:c62b29,c_limit,f_jpg,h_630,q_90,w_630/v1500491730/production/designs/1750300_1.jpg" alt="spiderman"/>
-                <p>News source</p>
+        <Frame>
+            <div className={s.news_wrapper}>
+                <div className={s.source_info}>
+                    <img className={s.avatar} src={spidermanAvatar} alt="spiderman"/>
+                    <p>News source</p>
+                </div>
+                <div>
+                    <h2>Headline</h2>
+                    <p>Lorum ipsum</p>
+                </div>
             </div>
-            <div>
-                <h2>Headline</h2>
-                <p>Lorum ipsum</p>
-            </div>
-        </div>
+        </Frame>
     )
 };
 

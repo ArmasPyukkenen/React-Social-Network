@@ -2,9 +2,15 @@
     display:flex;
     justify-content: space-between;
     grid-area: h;
-    background-color:cornflowerblue;
+    background-color:rgb(150, 200, 150);
+    padding: 0.5rem;
 }
 
 .header img {
-    width: 60px;
+    max-height: 64px;
+    padding-right: 0.5rem;
+}
+
+.logoArea {
+    display: flex;
 }

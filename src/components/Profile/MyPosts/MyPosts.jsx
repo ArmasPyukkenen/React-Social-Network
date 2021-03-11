@@ -17,7 +17,7 @@ const MyPosts = (props) => {
 
     return (
         <div className={s.posts_section}>
-            <p>My posts</p>
+            <h2>My posts</h2>
             <textarea onChange={changeNewPostText} value={props.newPostText}></textarea><br/>
             <button onClick={addPost}>Add post</button>
             {postsArea}

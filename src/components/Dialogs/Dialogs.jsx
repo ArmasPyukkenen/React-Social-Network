@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+import Frame from "../Frame/Frame";
 
 const DialogItem = (props) => {
     return (
@@ -36,15 +37,19 @@ const Dialogs = (props) => {
 
     return(
         <div className={s.message_page}>
-            <div className={s.dialog_items}>
-                <h2>Dialogs</h2>
-                {renderDialogNames()}
-            </div>
-            <div className={s.message_items}>
-                {renderMessages()}
-                <textarea value={state.newMessageText} onChange={changeNewMessage}></textarea>
-                <button onClick={sendMessage}>Send</button>
-            </div>
+            <Frame>
+                <div className={s.dialog_items}>
+                    <h2>Dialogs</h2>
+                    {renderDialogNames()}
+                </div>
+            </Frame>
+            <Frame>
+                <div className={s.message_items}>
+                    {renderMessages()}
+                    <textarea value={state.newMessageText} onChange={changeNewMessage}></textarea>
+                    <button onClick={sendMessage}>Send</button>
+                </div>
+            </Frame>
         </div>
     )
 };

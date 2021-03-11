@@ -13,22 +13,25 @@ const ProfileStatus = (props) => {
     props.changeStatus(localStatus);
   }
 
-  return <div>
-    {
-      editMode ?
-        <textarea 
-          autoFocus={true} 
-          onChange={e => setLocalStatus(e.target.value)} 
-          onBlur={handleStatusChange}
-          value={localStatus}
-        >
-        </textarea>
-        :
-        <span onDoubleClick={() => setEditMode(true)}>
-          {props.status || "status"}
-        </span>
-    }
-  </div>
+  return (
+    <div>
+      {
+        editMode ?
+          <textarea 
+            autoFocus={true} 
+            onChange={e => setLocalStatus(e.target.value)} 
+            onBlur={handleStatusChange}
+            value={localStatus}
+          >
+          </textarea>
+          :
+          <span onDoubleClick={() => setEditMode(true)}>
+            &#x270E;
+            {props.status || "status"}
+          </span>
+      }
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => ({
