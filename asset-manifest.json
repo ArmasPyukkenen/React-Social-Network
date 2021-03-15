@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.5cb6d956.chunk.css",
+    "main.js": "/react-gh-pages/static/js/main.479d0b84.chunk.js",
+    "main.js.map": "/react-gh-pages/static/js/main.479d0b84.chunk.js.map",
+    "runtime~main.js": "/react-gh-pages/static/js/runtime~main.bdb0e5ff.js",
+    "runtime~main.js.map": "/react-gh-pages/static/js/runtime~main.bdb0e5ff.js.map",
+    "static/js/2.9b20d053.chunk.js": "/react-gh-pages/static/js/2.9b20d053.chunk.js",
+    "static/js/2.9b20d053.chunk.js.map": "/react-gh-pages/static/js/2.9b20d053.chunk.js.map",
+    "index.html": "/react-gh-pages/index.html",
+    "precache-manifest.3e2af475903dc95ce6f803740e451d06.js": "/react-gh-pages/precache-manifest.3e2af475903dc95ce6f803740e451d06.js",
+    "service-worker.js": "/react-gh-pages/service-worker.js",
+    "static/css/main.5cb6d956.chunk.css.map": "/react-gh-pages/static/css/main.5cb6d956.chunk.css.map",
+    "static/media/defaultavatar.png": "/react-gh-pages/static/media/defaultavatar.0aa8581c.png",
+    "static/media/spiderman.jpg": "/react-gh-pages/static/media/spiderman.96fddef5.jpg"
+  }
+}
